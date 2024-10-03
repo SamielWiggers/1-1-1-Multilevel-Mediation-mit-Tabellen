@@ -14,7 +14,7 @@ daten <- read.csv2('Daten.csv', na.strings="")
 
 
 #Daten überprüfen####
-vars<-c("Variable1","Variable2","Variable3","Variable4","Variable5","Variable6","Variable7","Variable8","Variable9","Variable10")
+vars<-c("Variable1","Variable2","Variable3","Variable4","Variable5","Variable6","Variable7","Variable8","Variable9","Variable10","Variable11")
 for (i in vars){
   print(i)
   print(summary(daten[[i]]))
@@ -36,9 +36,9 @@ for(i in x){
       x = i,
       meds = j,
       covs = cont,
-      clusters = c("person"),
-      hlm.re.m = "(1+woche|person)",
-      hlm.re.y = "(1+woche|person)",
+      clusters = c("Person"),
+      hlm.re.m = "(1+Woche|Person)",
+      hlm.re.y = "(1+Woche|Person)",
       hlm.type = c("1-1-1"),
       cov.path = c("both"),
       center = FALSE,
@@ -48,7 +48,7 @@ for(i in x){
   }
 }
 
-#Datei erstellen mit Parametern des jeweiligen Modells (was ist x und med?)#####
+#Übersichtsdatei erstellen mit Parametern des jeweiligen Modells (was ist x und med?)#####
 count<-0
 models<-list()
 for(i in x){
